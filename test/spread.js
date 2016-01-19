@@ -9,7 +9,6 @@ TestMaster.prototype = {
 	__proto__: Master.prototype,
 
 	_transform: function(chunk, encoding, done) {
-
 		this._sendToWorkers(chunk.toString().split('\n').map(function(line) {return line +' no '}), function () {
 			done();
 		});
@@ -17,11 +16,12 @@ TestMaster.prototype = {
 };
 
 var transform = new TestMaster({
-	workerCount: 6,
+	workerCount: 5,
 	script: __dirname + '/worker.js',
 });
 
 transform.on('ready', function() {
+	console.log('ready');
 	fs.createReadStream('./toto.txt')
 	.pipe(transform)
 	.pipe(fs.createWriteStream('./tata.txt'))

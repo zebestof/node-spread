@@ -7,8 +7,9 @@ function AddOneToStringWorker () {
 AddOneToStringWorker.prototype = {
 	__proto__: Worker.prototype,
 
-	exec: function(message) {
-		return message + '1';
+	exec: function(message, done) {
+
+		return done(message + '1');
 	}
 }
 
