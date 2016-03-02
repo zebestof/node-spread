@@ -1,7 +1,6 @@
 {
   "name": "spread",
   "version": "0.0.1",
-  "private": "true",
   "dependencies": {
     "zmq": "^2.14.0"
   },
