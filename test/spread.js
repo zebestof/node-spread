@@ -16,8 +16,9 @@ TestMaster.prototype = {
 };
 
 var transform = new TestMaster({
-	workerCount: 5,
+	workerCount: 3,
 	script: __dirname + '/worker.js',
+	skip: 1
 });
 
 transform.on('ready', function() {
